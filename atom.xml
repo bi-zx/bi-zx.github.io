@@ -1,0 +1,1146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://bi-zx.github.io</id>
+    <title>Blog</title>
+    <updated>2025-02-27T12:52:09.319Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://bi-zx.github.io"/>
+    <link rel="self" href="https://bi-zx.github.io/atom.xml"/>
+    <subtitle>My Personal Blog</subtitle>
+    <logo>https://bi-zx.github.io/images/avatar.png</logo>
+    <icon>https://bi-zx.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2025, Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[conda虚拟环境配置]]></title>
+        <id>https://bi-zx.github.io/post/smart-lift/</id>
+        <link href="https://bi-zx.github.io/post/smart-lift/">
+        </link>
+        <updated>2025-02-23T16:00:00.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="conda虚拟环境配置">conda虚拟环境配置</h1>
+<p>创建一个名为<code>LiftSim</code>的虚拟环境，Python版本为3.7.12</p>
+<pre><code class="language-shell">conda create -n LiftSim python=3.7.12
+</code></pre>
+<p>激活该虚拟环境</p>
+<pre><code class="language-shell">activate LiftSim
+</code></pre>
+<p>安装依赖</p>
+<pre><code class="language-shell">python -m pip install pip==23.3.2 -i https://mirrors.aliyun.com/pypi/simple
+pip install setuptools==57.5.0 wheel==0.37.0 -i https://mirrors.aliyun.com/pypi/simple
+
+pip install rlschool==0.3.2 gym==0.18.0 metagym==0.1.1 matplotlib==3.3.4 numpy==1.20.3 scikit-learn==0.24.2 make_env==0.0.7 pyglet==1.5.0 mock==3.0.5 -i https://mirrors.aliyun.com/pypi/simple
+
+pip install parl==1.3.1 protobuf==3.19.0 -i https://mirrors.aliyun.com/pypi/simple
+</code></pre>
+<p>在Pycharm IDE中配置该虚拟环境，运行实例代码：</p>
+<p><code>LiftSim_example.py</code></p>
+<pre><code class="language-python">import gym
+import metagym.liftsim
+
+env = gym.make('liftsim-v0')
+observation = env.reset()
+action = [2, 0, 4, 0, 7, 0, 10, 0]
+for i in range(100):
+    env.render()    # use render to show animation
+    next_obs, reward, done, info = env.step(action)
+</code></pre>
+<p>出现电梯动画即为安装成功</p>
+<p>之后研究代码，可尝试训练(可能需自行安装依赖)</p>
+<p>可参考链接：</p>
+<p><a href="https://aistudio.baidu.com/competition/detail/11/0/introduction">电梯调度算法大赛_飞桨大赛-飞桨AI Studio星河社区</a></p>
+<p><a href="https://aistudio.baidu.com/projectdetail/100632">LiftSim_baseline - 飞桨AI Studio星河社区</a></p>
+<p>WSL:</p>
+<pre><code class="language-shell">conda create -n GAN python=3.6.15
+conda activate GAN
+
+pip install rlschool==0.3.1 gym==0.18.0 atari-py==0.2.6 metagym==0.1.1 matplotlib==3.3.4 numpy==1.19.5 scikit-learn==0.24.2 make_env==0.0.7 pyglet==1.5.0 mock==3.0.5 parl==1.4 -i https://mirrors.aliyun.com/pypi/simple
+
+pip install paddlepaddle-gpu==1.8.5.post97 -i https://mirrors.aliyun.com/pypi/simple
+pip install paddlepaddle==1.8.5 -i https://mirrors.aliyun.com/pypi/simple
+</code></pre>
+<pre><code>conda create -n GAN python=3.6.15
+conda activate GAN
+pip install paddlepaddle-gpu==1.8.5.post97 parl==1.4 gym==0.18.0 atari-py==0.2.6 rlschool==0.3.1 -i https://mirrors.aliyun.com/pypi/simple
+</code></pre>
+<pre><code>conda create -n GAN python=3.7.12
+conda activate GAN
+pip install paddlepaddle==1.8.5 parl==1.4 gym==0.18.0 atari-py==0.2.6 rlschool==0.3.1 -i https://mirrors.aliyun.com/pypi/simple
+</code></pre>
+<pre><code>#rlschool可用与gym可用
+conda create -n LiftSim python=3.7.12
+activate LiftSim
+
+python -m pip install pip==23.3.2 -i https://mirrors.aliyun.com/pypi/simple
+pip install setuptools==57.5.0 wheel==0.37.0 -i https://mirrors.aliyun.com/pypi/simple
+
+pip install rlschool==0.3.2 gym==0.18.0 metagym==0.1.1 matplotlib==3.3.4 numpy==1.20.3 scikit-learn==0.24.2 make_env==0.0.7 pyglet==1.5.0 mock==3.0.5 -i https://mirrors.aliyun.com/pypi/simple
+
+pip install parl==1.3.1 protobuf==3.19.0 -i https://mirrors.aliyun.com/pypi/simple
+#尝试降级
+pip install paddlepaddle-gpu==1.8.5.post97 -i https://mirrors.aliyun.com/pypi/simple
+pip install paddlepaddle==1.8.5 -i https://mirrors.aliyun.com/pypi/simple
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Astro个人博客搭建]]></title>
+        <id>https://bi-zx.github.io/post/build-astro-blog/</id>
+        <link href="https://bi-zx.github.io/post/build-astro-blog/">
+        </link>
+        <updated>2025-02-19T16:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>import { Steps, Aside, Tabs, TabItem } from 'astro-pure/user'</p>
+<h1 id="astro个人博客搭建">Astro个人博客搭建</h1>
+<h2 id="installation">Installation</h2>
+<p>Environment requirements:</p>
+<ul>
+<li><a href="https://nodejs.org/">Nodejs</a>: 18.0.0+</li>
+</ul>
+<h3 id="install-using-fork">Install Using Fork</h3>
+<p>You only need to <a href="https://github.com/cworld1/astro-theme-pure/fork">click fork button at theme repository</a> to create your project; then clone the forked repository to your local machine.</p>
+<pre><code class="language-shell">git clone https://github.com/&lt;your-username&gt;/astro-theme-pure.git
+cd ./&lt;your-project&gt;
+bun install
+</code></pre>
+<p>Then, you can start the Astro dev server and see a live preview of your project while you make it your own!</p>
+<h2 id="start-the-dev-server">Start the Dev Server</h2>
+<p>Go to your project directory:</p>
+<pre><code class="language-shell">cd ./&lt;your-project&gt;
+bun dev
+</code></pre>
+<h2 id="simple-setup">Simple Setup</h2>
+<Steps>
+<ol>
+<li>
+<p>Remove docs files</p>
+<ul>
+<li>Remove the <code>src/pages/docs</code> directory</li>
+<li>Remove the menu declaration in <code>src/site.config.ts</code>:</li>
+</ul>
+<pre><code class="language-ts">export const theme: ThemeUserConfig = {
+   // ...
+   /** Configure the header of your site. */
+   header: {
+      menu: [
+         { title: 'Blog', link: '/blog' },
+         { title: 'Docs', link: '/docs' }, // [!code --]
+         // ...
+      ],
+   },
+}
+</code></pre>
+<ul>
+<li>Remove the Content Collection for docs in <code>src/content.config.ts</code>:</li>
+</ul>
+<pre><code class="language-ts">const docs = defineCollection({ // [!code --]
+loader: glob({ base: './src/content/docs', pattern: '**/*.{md,mdx}' }), // [!code --]
+schema: ({ image }) =&gt; // [!code --]
+   z.object({ // [!code --]
+      ... // [!code --]
+   }) // [!code --]
+}) // [!code --]
+export const collections = { blog, docs } // [!code --]
+export const content = { blog } // [!code ++]
+</code></pre>
+</li>
+<li>
+<p>Remove <code>packages</code> directory (this will be imported by our NPM package)</p>
+</li>
+<li>
+<p>Change the site favicon.</p>
+<Aside type='tip'>
+[Favicon.io](https://favicon.io/) is a great tool that can help you generate favicons quickly.
+</Aside>
+<p>Replace the <code>public/favicon/*</code> files with your own favicon.</p>
+</li>
+<li>
+<p>Replace your avatar image.</p>
+<p>Replace the <code>src/assets/avatar.png</code> file with your own avatar image.</p>
+</li>
+<li>
+<p>Configure the site</p>
+<p>You can configure your project inside the <code>src/site.config.ts</code> configuration file:</p>
+<pre><code class="language-ts">export const theme: ThemeUserConfig = {
+   author: 'CWorld',
+   title: 'Astro Theme Pure',
+   site: 'https://astro-pure.js.org',
+   description: 'Stay hungry, stay foolish',
+   // ...
+}
+
+export const integ: IntegrationUserConfig = { /* ... */ }
+// ...
+</code></pre>
+</li>
+<li>
+<p>Typescript Syntax</p>
+<p>The configuration file <code>site.config.ts</code> uses Typescript syntax. If you are not familiar with TS syntax, please read about it <a href="https://learnxinyminutes.com/docs/typescript/">here</a> first.</p>
+</li>
+</ol>
+</Steps>
+<h2 id="deployment-mode">Deployment Mode</h2>
+<Aside type='tip'>
+Astro had a very fantastic support for deployment. Check [Deploy your Astro Site](https://docs.astro.build/en/guides/deploy/) for more.
+</Aside>
+<h3 id="vercel">Vercel</h3>
+<p>This theme supports Vercel by default:</p>
+<Steps>
+<ol>
+<li>Push your code to your online Git repository (GitHub, GitLab, BitBucket).</li>
+<li><a href="https://vercel.com/new">Import your project</a> into Vercel.</li>
+<li>Vercel will automatically detect Astro and configure the right settings.</li>
+<li>Your application is deployed! (e.g. <a href="https://astro.vercel.app/">astro.vercel.app</a>)</li>
+</ol>
+</Steps>
+<p>And vercel also support static method:</p>
+<pre><code class="language-ts">import vercelServerless from '@astrojs/vercel/serverless' // [!code --]
+import vercelStatic from '@astrojs/vercel/static'; // [!code ++]
+
+export default defineConfig({
+  //   ...
+  adapter: vercelServerless() // [!code --]
+  adapter: vercelStatic(), // [!code ++]
+})
+</code></pre>
+<h3 id="using-vercel-with-a-custom-domain">Using Vercel with a custom domain</h3>
+<p>Vercel Dashboard -&gt; your-project -&gt; Settings -&gt; Domains</p>
+<p>Edit your domain and save, configure your DNS settings automatically.</p>
+<h2 id="waline-comment-system">Waline Comment System</h2>
+<Aside>
+  This theme has integrated the Waline comment system. You can configure it at the
+  `integrationConfig.waline` in file `src/site.config.ts`.
+</Aside>
+<p>The theme's comment, read statistics, likes, and other functionalities are all provided by <a href="https://waline.js.org/">Waline</a>.</p>
+<h3 id="deploy">Deploy</h3>
+<p>You can refer to <a href="https://waline.js.org/guide/get-started/">its documentation</a> for configuration, and it is recommended to use the Vercel + Lean combination.</p>
+<h4 id="leancloud-设置-数据库">LeanCloud 设置 (数据库)</h4>
+<ol>
+<li>
+<p><a href="https://console.leancloud.app/login">登录</a> 或 <a href="https://console.leancloud.app/register">注册</a> <code>LeanCloud 国际版</code> 并进入 <a href="https://console.leancloud.app/apps">控制台</a></p>
+</li>
+<li>
+<p>点击左上角 <a href="https://console.leancloud.app/apps">创建应用</a> 并起一个你喜欢的名字 (请选择免费的开发版):</p>
+<p><img src="https://bi-zx.github.io/post-images/build-astro-blog/index.assets/leancloud-1-CucZPnJ0.png" alt="创建应用" loading="lazy">创建应用</p>
+</li>
+<li>
+<p>进入应用，选择左下角的 <code>设置</code> &gt; <code>应用 Key</code>。你可以看到你的 <code>APP ID</code>,<code>APP Key</code> 和 <code>Master Key</code>。请记录它们，以便后续使用。</p>
+<p><img src="https://bi-zx.github.io/post-images/build-astro-blog/index.assets/leancloud-2-C9bCeSu_.png" alt="ID 和 Key" loading="lazy">ID 和 Key</p>
+</li>
+</ol>
+<h4 id="vercel-部署-服务端">Vercel 部署 (服务端)</h4>
+<p><a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwalinejs%2Fwaline%2Ftree%2Fmain%2Fexample"><img src="https://bi-zx.github.io/post-images/build-astro-blog/index.assets/button.svg" alt="Vercel" loading="lazy"></a>Vercel</p>
+<ol>
+<li>
+<p>点击上方按钮，跳转至 Vercel 进行 Server 端部署。</p>
+<p>注</p>
+<p>如果你未登录的话，Vercel 会让你注册或登录，请使用 GitHub 账户进行快捷登录。</p>
+</li>
+<li>
+<p>输入一个你喜欢的 Vercel 项目名称并点击 <code>Create</code> 继续:</p>
+<p><img src="https://bi-zx.github.io/post-images/build-astro-blog/index.assets/vercel-1-DoAtoGHg.png" alt="创建项目" loading="lazy">创建项目</p>
+</li>
+<li>
+<p>此时 Vercel 会基于 Waline 模板帮助你新建并初始化仓库，仓库名为你之前输入的项目名。</p>
+<p><img src="https://bi-zx.github.io/post-images/build-astro-blog/index.assets/vercel-3-Brb_j0cD.png" alt="deploy" loading="lazy">deploy</p>
+<p>一两分钟后，满屏的烟花会庆祝你部署成功。此时点击 <code>Go to Dashboard</code> 可以跳转到应用的控制台。</p>
+<p><img src="https://bi-zx.github.io/post-images/build-astro-blog/index.assets/vercel-4-CNMnhm70.png" alt="deploy" loading="lazy">deploy</p>
+</li>
+<li>
+<p>点击顶部的 <code>Settings</code> - <code>Environment Variables</code> 进入环境变量配置页，并配置三个环境变量 <code>LEAN_ID</code>, <code>LEAN_KEY</code> 和 <code>LEAN_MASTER_KEY</code> 。它们的值分别对应上一步在 LeanCloud 中获得的 <code>APP ID</code>, <code>APP KEY</code>, <code>Master Key</code>。</p>
+<p><img src="https://bi-zx.github.io/post-images/build-astro-blog/index.assets/vercel-5-CIj2EZQq.png" alt="设置环境变量" loading="lazy">设置环境变量</p>
+</li>
+<li>
+<p>环境变量配置完成之后点击顶部的 <code>Deployments</code> 点击顶部最新的一次部署右侧的 <code>Redeploy</code> 按钮进行重新部署。该步骤是为了让刚才设置的环境变量生效。</p>
+<p><img src="https://bi-zx.github.io/post-images/build-astro-blog/index.assets/vercel-6-CQnJ4Agt.png" alt="redeploy" loading="lazy">redeploy</p>
+</li>
+<li>
+<p>此时会跳转到 <code>Overview</code> 界面开始部署，等待片刻后 <code>STATUS</code> 会变成 <code>Ready</code>。此时请点击 <code>Visit</code> ，即可跳转到部署好的网站地址，此地址即为你的服务端地址。</p>
+<p><img src="https://bi-zx.github.io/post-images/build-astro-blog/index.assets/vercel-7-DbSum90d.png" alt="redeploy success" loading="lazy">redeploy success</p>
+</li>
+</ol>
+<h4 id="绑定域名-可选">绑定域名 (可选)</h4>
+<ol>
+<li>
+<p>点击顶部的 <code>Settings</code> - <code>Domains</code> 进入域名配置页</p>
+</li>
+<li>
+<p>输入需要绑定的域名并点击 <code>Add</code></p>
+<p><img src="https://bi-zx.github.io/post-images/build-astro-blog/index.assets/vercel-8-BDTeHH3e.png" alt="Add domain" loading="lazy">Add domain</p>
+</li>
+<li>
+<p>在域名服务器商处添加新的 <code>CNAME</code> 解析记录</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CNAME</td>
+<td>example</td>
+<td>cname.vercel-dns.com</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>等待生效，你可以通过自己的域名来访问了🎉</p>
+<ul>
+<li>评论系统：example.yourdomain.com</li>
+<li>评论管理：example.yourdomain.com/ui</li>
+</ul>
+<p><img src="https://bi-zx.github.io/post-images/build-astro-blog/index.assets/vercel-9-Df5XGWYy.png" alt="success" loading="lazy">success</p>
+</li>
+</ol>
+<h4 id="评论管理-管理端">评论管理 (管理端)</h4>
+<ol>
+<li>部署完成后，请访问 <code>&lt;serverURL&gt;/ui/register</code> 进行注册。首个注册的人会被设定成管理员。</li>
+<li>管理员登陆后，即可看到评论管理界面。在这里可以修改、标记或删除评论。</li>
+<li>用户也可通过评论框注册账号，登陆后会跳转到自己的档案页。</li>
+</ol>
+<h3 id="configuration">Configuration</h3>
+<p>Then you can configure the Waline comment system in the <code>integrationConfig.server</code>.</p>
+<pre><code class="language-ts">export const integ: IntegrationUserConfig = {
+  // ...
+  waline: {
+    enable: true,
+    // Server service link
+    server: 'https://your-project-name.vercel.app/', // [!code highlight]
+    // Refer https://waline.js.org/en/guide/features/emoji.html
+    emoji: ['bmoji', 'weibo'],
+    // Refer https://waline.js.org/en/reference/client/props.html
+    additionalConfigs: {
+      pageview: true,
+      comment: true
+      // ...
+    }
+  }
+}
+</code></pre>
+<h3 id="usage">Usage</h3>
+<p>You can call it manually in <code>.astro</code> or <code>.mdx</code> files.</p>
+<pre><code class="language-jsx">import { Comment } from 'astro-pure/advanced'
+
+;&lt;Comment /&gt;
+</code></pre>
+<blockquote>
+<p>参考链接：</p>
+<p><a href="https://astro-pure.js.org/docs/">DOCS • Astro Theme Pure</a></p>
+<p><a href="https://github.com/cworld1/astro-theme-pure">cworld1/astro-theme-pure: ⭐ A simple, fast and powerful blog theme built by Astro</a></p>
+<p><a href="https://waline.js.org/guide/get-started/">快速上手 | Waline</a></p>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Guidance]]></title>
+        <id>https://bi-zx.github.io/post/guidance/</id>
+        <link href="https://bi-zx.github.io/post/guidance/">
+        </link>
+        <updated>2025-02-10T16:00:00.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="ai-guideline">AI Guideline</h1>
+<p>需安装软件:</p>
+<p>typedown</p>
+<p>anaconda</p>
+<p>pycharm community</p>
+<h2 id="学习规划">学习规划</h2>
+<h3 id="1-python基础">1.  Python基础</h3>
+<blockquote>
+<p>本部分内容用于扫清语言等障碍，方便后续学习。</p>
+</blockquote>
+<p>如果你之前没有python编程语言基础，可以尝试学习<a href="https://www.bilibili.com/video/BV1qW4y1a7fU/?share_source=copy_web&amp;vd_source=97298f03666eeb8d4033be3385497260">黑马程序员的课程</a>，如果之前具备python基础的话，可以学习<a href="https://www.bilibili.com/video/BV1944y1x7SW/?share_source=copy_web&amp;vd_source=97298f03666eeb8d4033be3385497260">这个视频</a></p>
+<h3 id="2-机器学习基础">2.  机器学习基础</h3>
+<blockquote>
+<p>本部分的作用为通过简单的机器学习任务，理解解决问题的思路（如梯度下降，分类问题的本质），并掌握深度学习底层知识（如感知机）。<strong>可以直接跳过本部分，后期遇到基础漏洞再返回学习，效率更高。</strong></p>
+</blockquote>
+<h5 id="吴恩达机器学习">吴恩达机器学习</h5>
+<p><a href="https://www.bilibili.com/video/BV164411b7dx/?share_source=copy_web&amp;vd_source=97298f03666eeb8d4033be3385497260">Click this</a> 学习线性回归，逻辑回归，感知机等重要模型即可。需掌握梯度下降，激活函数，损失函数，过/欠拟合，正则化等<strong>思想</strong>。</p>
+<p><strong>复杂公式不用推导，开发时用不上。</strong></p>
+<h3 id="3-深度学习基础">3.  深度学习基础</h3>
+<blockquote>
+<p>本部分较为重要，通过学习本部分课程，可以掌握深度学习、神经网络较为底层的原理，加强对ai领域知识的整体把握。</p>
+</blockquote>
+<p>先看这个：<a href="https://www.bilibili.com/video/BV1dJ411B7gh?share_source=copy_web&amp;vd_source=97298f03666eeb8d4033be3385497260&amp;p=19&amp;spm_id_from=333.788.videopod.episodes">人工神经网络</a>，直到看完<a href="https://www.bilibili.com/video/BV1dJ411B7gh?share_source=copy_web&amp;vd_source=97298f03666eeb8d4033be3385497260&amp;spm_id_from=333.788.videopod.episodes&amp;p=32">这个视频</a>，此时你已经对神经网络的理论有初步的了解。</p>
+<h3 id="4-numpy包实践">4.  Numpy包实践</h3>
+<p>学习<a href="https://www.bilibili.com/video/BV1Ex411L7oT/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83865311d73b1fcd83b5d9d66552aec1">莫烦的Numpy/Pandas教程</a>的numpy部分，重点掌握<strong>numpy数组切片</strong>的方法，pandas可略看。另外有Numpy的<a href="https://www.runoob.com/numpy/numpy-tutorial.html">中文</a>和<a href="https://numpy.org/doc/">英文</a>文档，以及 Pandas的<a href="https://www.runoob.com/pandas/pandas-tutorial.html">中文</a>和<a href="https://pandas.pydata.org/docs/user_guide/index.html">英文</a>文档供参考。</p>
+<h3 id="5-pytorch基础">5.  Pytorch基础</h3>
+<p><a href="https://www.bilibili.com/video/BV1hE411t7RN/?share_source=copy_web&amp;vd_source=97298f03666eeb8d4033be3385497260">小土堆pytorch入门</a></p>
+<p>也可直接看<a href="https://pytorch.org/tutorials/beginner/basics/intro.html#">pytorch官方教程</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[深度学习环境搭建]]></title>
+        <id>https://bi-zx.github.io/post/build-deeplearning-env/</id>
+        <link href="https://bi-zx.github.io/post/build-deeplearning-env/">
+        </link>
+        <updated>2024-09-04T16:00:00.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="cuda-cudnn安装">CUDA cuDNN安装</h2>
+<ol>
+<li>下载对应版本CUDA，cuDNN，安装CUDA</li>
+<li>在cmd中输入<code>nvcc -V</code> ，返回CUDA版本则说明安装成功</li>
+<li>安装时若遇到“You already have a newer version of the NVIDIA Frameview SDK installed”，先把电脑已经存在的FrameView SDK 卸载掉，把C:\Program Files\NVIDIA Corporation\FrameViewSDK文件夹删掉</li>
+<li>将cuDNN解压，bin, include, lib文件夹复制到C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\vxx.x目录下并覆盖</li>
+</ol>
+<h2 id="tensorflow安装">TensorFlow安装</h2>
+<p>CUDA 10.1 tensorflow 2.1.0</p>
+<pre><code class="language-shell">conda create --prefix=E:\envs\tf2 python=3.6.13
+activate E:\envs\tf2
+
+conda install tensorflow-gpu=2.1.0
+pip install keras==2.3.1
+conda install numpy=1.16.6
+conda install matplotlib=3.2.2
+conda install pillow
+conda install scipy=1.2.0
+</code></pre>
+<p>CUDA 11.8	TensorFlow 2.6.0</p>
+<pre><code class="language-shell">conda create -n tf26 python=3.8.18
+activate tf26
+
+conda install cudatoolkit=11.2.0 cudnn=8.1.0.77
+pip install tensorflow-gpu==2.6.0 keras==2.6.0 protobuf==3.20.0 -i https://pypi.tuna.tsinghua.edu.cn/simple/
+conda install numpy=1.19.5 matplotlib=3.3.4 scipy scikit-learn pandas
+</code></pre>
+<p>CUDA 11.8	TensorFlow 2.10.0</p>
+<pre><code class="language-shell">conda create -n tf210 python=3.8.18
+activate tf210
+
+conda install cudatoolkit=11.3 cudnn=8.2.1
+pip install tensorflow-gpu==2.10.0 keras==2.10.0 protobuf==3.20 -i https://pypi.tuna.tsinghua.edu.cn/simple/
+conda install numpy=1.22 matplotlib=3.7.2 scipy scikit-learn pandas
+pip install opencv-python==4.4.0.44 tqdm imutils PyYAML tensorboard seaborn chardet -i https://pypi.tuna.tsinghua.edu.cn/simple/
+</code></pre>
+<p>检测TensorFlow能否使用GPU</p>
+<pre><code class="language-python">import tensorflow as tf
+tf.config.list_physical_devices('GPU')
+</code></pre>
+<h2 id="pytorch安装">PyTorch安装</h2>
+<p>CUDA 11.8	PyTorch2.3.1</p>
+<pre><code class="language-shell">conda create -n torch2 python=3.8.19
+activate torch2
+
+conda install pytorch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 pytorch-cuda=11.8 -c pytorch -c nvidia
+</code></pre>
+<p>CUDA 11.8	PyTorch1.13.1</p>
+<pre><code class="language-shell">conda create -n torch1 python=3.7.16
+activate torch1
+
+conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia
+</code></pre>
+<p>检测PyTorch能否使用GPU</p>
+<pre><code class="language-python">import torch
+print(torch.cuda.is_available())
+print(torch.cuda.device_count())
+</code></pre>
+<h2 id="tested-build-configurations-on-windows">Tested build configurations on Windows</h2>
+<h3 id="gpu">GPU</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Version</th>
+<th style="text-align:left">Python version</th>
+<th style="text-align:left">Compiler</th>
+<th style="text-align:left">Build tools</th>
+<th style="text-align:left">cuDNN</th>
+<th style="text-align:left">CUDA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">tensorflow_gpu-2.10.0</td>
+<td style="text-align:left">3.7-3.10</td>
+<td style="text-align:left">MSVC 2019</td>
+<td style="text-align:left">Bazel 5.1.1</td>
+<td style="text-align:left">8.1</td>
+<td style="text-align:left">11.2</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-2.9.0</td>
+<td style="text-align:left">3.7-3.10</td>
+<td style="text-align:left">MSVC 2019</td>
+<td style="text-align:left">Bazel 5.0.0</td>
+<td style="text-align:left">8.1</td>
+<td style="text-align:left">11.2</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-2.8.0</td>
+<td style="text-align:left">3.7-3.10</td>
+<td style="text-align:left">MSVC 2019</td>
+<td style="text-align:left">Bazel 4.2.1</td>
+<td style="text-align:left">8.1</td>
+<td style="text-align:left">11.2</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-2.7.0</td>
+<td style="text-align:left">3.7-3.9</td>
+<td style="text-align:left">MSVC 2019</td>
+<td style="text-align:left">Bazel 3.7.2</td>
+<td style="text-align:left">8.1</td>
+<td style="text-align:left">11.2</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-2.6.0</td>
+<td style="text-align:left">3.6-3.9</td>
+<td style="text-align:left">MSVC 2019</td>
+<td style="text-align:left">Bazel 3.7.2</td>
+<td style="text-align:left">8.1</td>
+<td style="text-align:left">11.2</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-2.5.0</td>
+<td style="text-align:left">3.6-3.9</td>
+<td style="text-align:left">MSVC 2019</td>
+<td style="text-align:left">Bazel 3.7.2</td>
+<td style="text-align:left">8.1</td>
+<td style="text-align:left">11.2</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-2.4.0</td>
+<td style="text-align:left">3.6-3.8</td>
+<td style="text-align:left">MSVC 2019</td>
+<td style="text-align:left">Bazel 3.1.0</td>
+<td style="text-align:left">8.0</td>
+<td style="text-align:left">11.0</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-2.3.0</td>
+<td style="text-align:left">3.5-3.8</td>
+<td style="text-align:left">MSVC 2019</td>
+<td style="text-align:left">Bazel 3.1.0</td>
+<td style="text-align:left">7.6</td>
+<td style="text-align:left">10.1</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-2.2.0</td>
+<td style="text-align:left">3.5-3.8</td>
+<td style="text-align:left">MSVC 2019</td>
+<td style="text-align:left">Bazel 2.0.0</td>
+<td style="text-align:left">7.6</td>
+<td style="text-align:left">10.1</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-2.1.0</td>
+<td style="text-align:left">3.5-3.7</td>
+<td style="text-align:left">MSVC 2019</td>
+<td style="text-align:left">Bazel 0.27.1-0.29.1</td>
+<td style="text-align:left">7.6</td>
+<td style="text-align:left">10.1</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-2.0.0</td>
+<td style="text-align:left">3.5-3.7</td>
+<td style="text-align:left">MSVC 2017</td>
+<td style="text-align:left">Bazel 0.26.1</td>
+<td style="text-align:left">7.4</td>
+<td style="text-align:left">10</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-1.15.0</td>
+<td style="text-align:left">3.5-3.7</td>
+<td style="text-align:left">MSVC 2017</td>
+<td style="text-align:left">Bazel 0.26.1</td>
+<td style="text-align:left">7.4</td>
+<td style="text-align:left">10</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-1.14.0</td>
+<td style="text-align:left">3.5-3.7</td>
+<td style="text-align:left">MSVC 2017</td>
+<td style="text-align:left">Bazel 0.24.1-0.25.2</td>
+<td style="text-align:left">7.4</td>
+<td style="text-align:left">10</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-1.13.0</td>
+<td style="text-align:left">3.5-3.7</td>
+<td style="text-align:left">MSVC 2015 update 3</td>
+<td style="text-align:left">Bazel 0.19.0-0.21.0</td>
+<td style="text-align:left">7.4</td>
+<td style="text-align:left">10</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-1.12.0</td>
+<td style="text-align:left">3.5-3.6</td>
+<td style="text-align:left">MSVC 2015 update 3</td>
+<td style="text-align:left">Bazel 0.15.0</td>
+<td style="text-align:left">7.2</td>
+<td style="text-align:left">9.0</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-1.11.0</td>
+<td style="text-align:left">3.5-3.6</td>
+<td style="text-align:left">MSVC 2015 update 3</td>
+<td style="text-align:left">Bazel 0.15.0</td>
+<td style="text-align:left">7</td>
+<td style="text-align:left">9</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-1.10.0</td>
+<td style="text-align:left">3.5-3.6</td>
+<td style="text-align:left">MSVC 2015 update 3</td>
+<td style="text-align:left">Cmake v3.6.3</td>
+<td style="text-align:left">7</td>
+<td style="text-align:left">9</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-1.9.0</td>
+<td style="text-align:left">3.5-3.6</td>
+<td style="text-align:left">MSVC 2015 update 3</td>
+<td style="text-align:left">Cmake v3.6.3</td>
+<td style="text-align:left">7</td>
+<td style="text-align:left">9</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-1.8.0</td>
+<td style="text-align:left">3.5-3.6</td>
+<td style="text-align:left">MSVC 2015 update 3</td>
+<td style="text-align:left">Cmake v3.6.3</td>
+<td style="text-align:left">7</td>
+<td style="text-align:left">9</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-1.7.0</td>
+<td style="text-align:left">3.5-3.6</td>
+<td style="text-align:left">MSVC 2015 update 3</td>
+<td style="text-align:left">Cmake v3.6.3</td>
+<td style="text-align:left">7</td>
+<td style="text-align:left">9</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-1.6.0</td>
+<td style="text-align:left">3.5-3.6</td>
+<td style="text-align:left">MSVC 2015 update 3</td>
+<td style="text-align:left">Cmake v3.6.3</td>
+<td style="text-align:left">7</td>
+<td style="text-align:left">9</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-1.5.0</td>
+<td style="text-align:left">3.5-3.6</td>
+<td style="text-align:left">MSVC 2015 update 3</td>
+<td style="text-align:left">Cmake v3.6.3</td>
+<td style="text-align:left">7</td>
+<td style="text-align:left">9</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-1.4.0</td>
+<td style="text-align:left">3.5-3.6</td>
+<td style="text-align:left">MSVC 2015 update 3</td>
+<td style="text-align:left">Cmake v3.6.3</td>
+<td style="text-align:left">6</td>
+<td style="text-align:left">8</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-1.3.0</td>
+<td style="text-align:left">3.5-3.6</td>
+<td style="text-align:left">MSVC 2015 update 3</td>
+<td style="text-align:left">Cmake v3.6.3</td>
+<td style="text-align:left">6</td>
+<td style="text-align:left">8</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-1.2.0</td>
+<td style="text-align:left">3.5-3.6</td>
+<td style="text-align:left">MSVC 2015 update 3</td>
+<td style="text-align:left">Cmake v3.6.3</td>
+<td style="text-align:left">5.1</td>
+<td style="text-align:left">8</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-1.1.0</td>
+<td style="text-align:left">3.5</td>
+<td style="text-align:left">MSVC 2015 update 3</td>
+<td style="text-align:left">Cmake v3.6.3</td>
+<td style="text-align:left">5.1</td>
+<td style="text-align:left">8</td>
+</tr>
+<tr>
+<td style="text-align:left">tensorflow_gpu-1.0.0</td>
+<td style="text-align:left">3.5</td>
+<td style="text-align:left">MSVC 2015 update 3</td>
+<td style="text-align:left">Cmake v3.6.3</td>
+<td style="text-align:left">5.1</td>
+<td style="text-align:left">8</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Anaconda安装配置]]></title>
+        <id>https://bi-zx.github.io/post/install-anaconda/</id>
+        <link href="https://bi-zx.github.io/post/install-anaconda/">
+        </link>
+        <updated>2024-09-02T16:00:00.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>
+<p>以管理员运行安装程序，为所有用户安装，位置默认，暂不添加环境变量</p>
+</li>
+<li>
+<p>手动添加以下路径到至Path环境变量</p>
+</li>
+</ol>
+<pre><code>C:\ProgramData\Anaconda3
+C:\ProgramData\Anaconda3\Scripts
+C:\ProgramData\Anaconda3\Library\bin
+C:\ProgramData\Anaconda3\Library\usr\bin
+C:\ProgramData\Anaconda3\Library\mingw-w64\bin
+</code></pre>
+<ol start="3">
+<li>换源</li>
+</ol>
+<pre><code class="language-shell">conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
+conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+conda config --set show_channel_urls yes
+</code></pre>
+<ol start="4">
+<li>创建虚拟环境</li>
+</ol>
+<pre><code class="language-shell">#指定虚拟环境名称, python版本
+conda create -n env_name python=3.x.x
+
+#指定虚拟环境路径, 名称, python版本
+conda create --prefix=D:\xxx\env_name python=3.x.x
+</code></pre>
+<ol start="5">
+<li>导出导入虚拟环境</li>
+</ol>
+<pre><code class="language-shell">#激活需要导出的环境
+conda activate env_name
+
+#生成相关yaml文件，文件会生成在C盘用户目录里(导出可能失败，需打开.yaml文件检查)
+conda env export &gt; environment.yaml
+
+#在新电脑上根据yaml文件创建环境
+conda env create -f environment.yaml
+
+#上面的命令只会导出使用conda安装的，而pip安装的还需要下面的命令
+pip freeze &gt; requirements.txt
+
+#导入pip安装的包
+pip install -r requirements.txt
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Markdown 语法支持]]></title>
+        <id>https://bi-zx.github.io/post/markdown-zh/</id>
+        <link href="https://bi-zx.github.io/post/markdown-zh/">
+        </link>
+        <updated>2024-07-26T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="基本语法">基本语法</h2>
+<p>Markdown 是一种轻量级且易于使用的语法，用于为您的写作设计风格。</p>
+<h3 id="标题">标题</h3>
+<p>文章内容较多时，可以用标题分段：</p>
+<pre><code class="language-markdown"># 标题 1
+
+## 标题 2
+
+## 大标题
+
+### 小标题
+</code></pre>
+<p>标题预览会打乱文章的结构，所以在此不展示。</p>
+<h3 id="粗斜体">粗斜体</h3>
+<pre><code class="language-markdown">_斜体文本_
+
+**粗体文本**
+
+**_粗斜体文本_**
+</code></pre>
+<p>预览：</p>
+<p><em>斜体文本</em></p>
+<p><strong>粗体文本</strong></p>
+<p><strong><em>粗斜体文本</em></strong></p>
+<h3 id="链接">链接</h3>
+<pre><code class="language-markdown">文字链接 [链接名称](http://链接网址)
+</code></pre>
+<p>预览：</p>
+<p>文字链接 <a href="http://xn--ses510ahtve0t">链接名称</a></p>
+<h3 id="行内代码">行内代码</h3>
+<pre><code class="language-markdown">这是一条 `单行代码`
+</code></pre>
+<p>预览：</p>
+<p>这是一条 <code>行内代码</code></p>
+<h3 id="代码块">代码块</h3>
+<pre><code class="language-markdown">```js
+// calculate fibonacci
+function fibonacci(n) {
+  if (n &lt;= 1) return 1
+  return fibonacci(n - 1) + fibonacci(n - 2)
+}
+```
+</code></pre>
+<p>预览：</p>
+<pre><code class="language-js">// calculate fibonacci
+function fibonacci(n) {
+  if (n &lt;= 1) return 1
+  return fibonacci(n - 1) + fibonacci(n - 2)
+}
+</code></pre>
+<p>当前使用 shiki 作为代码高亮插件，支持的语言请参考 <a href="https://shiki.matsu.io/languages.html">shiki / languages</a>。</p>
+<h3 id="行内公式">行内公式</h3>
+<pre><code class="language-markdown">这是一条行内公式 $e^{i\pi} + 1 = 0$
+</code></pre>
+<p>预览：</p>
+<p>这是一条行内公式 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>e</mi><mrow><mi>i</mi><mi>π</mi></mrow></msup><mo>+</mo><mn>1</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">e^{i\pi} + 1 = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.907994em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">π</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></p>
+<h3 id="公式块">公式块</h3>
+<pre><code class="language-markdown">$$
+\hat{f}(\xi) = \int_{-\infty}^{\infty} f(x) e^{-2\pi i x \xi} \, dx
+$$
+</code></pre>
+<p>预览：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>f</mi><mo>^</mo></mover><mo>(</mo><mi>ξ</mi><mo>)</mo><mo>=</mo><msubsup><mo>∫</mo><mrow><mo>−</mo><mi mathvariant="normal">∞</mi></mrow><mi mathvariant="normal">∞</mi></msubsup><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><msup><mi>e</mi><mrow><mo>−</mo><mn>2</mn><mi>π</mi><mi>i</mi><mi>x</mi><mi>ξ</mi></mrow></msup><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">\hat{f}(\xi) = \int_{-\infty}^{\infty} f(x) e^{-2\pi i x \xi} \, dx
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2078799999999998em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9578799999999998em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.08332999999999999em;">^</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.04601em;">ξ</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.384573em;vertical-align:-0.970281em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.414292em;"><span style="top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">∞</span></span></span></span><span style="top:-3.8129000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∞</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.970281em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991079999999999em;"><span style="top:-3.1130000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">2</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">π</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">x</span><span class="mord mathdefault mtight" style="margin-right:0.04601em;">ξ</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">x</span></span></span></span></span></p>
+<p>当前使用 KaTeX 作为数学公式插件，支持的语法请参考 <a href="https://katex.org/docs/supported.html">KaTeX Supported Functions</a>。</p>
+<h4 id="图片">图片</h4>
+<pre><code class="language-markdown">![CWorld](https://cravatar.cn/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=200)
+</code></pre>
+<p>预览：</p>
+<figure data-type="image" tabindex="1"><img src="https://cravatar.cn/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=200" alt="CWorld" loading="lazy"></figure>
+<h4 id="删除线">删除线</h4>
+<pre><code class="language-markdown">~~删除线~~
+</code></pre>
+<p>预览：</p>
+<p><s>删除线</s></p>
+<h3 id="列表">列表</h3>
+<p>普通无序列表</p>
+<pre><code class="language-markdown">- 1
+- 2
+- 3
+</code></pre>
+<p>预览：</p>
+<ul>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+</ul>
+<p>普通有序列表</p>
+<pre><code class="language-markdown">1. GPT-4
+2. Claude Opus
+3. LLaMa
+</code></pre>
+<p>预览：</p>
+<ol>
+<li>GPT-4</li>
+<li>Claude Opus</li>
+<li>LLaMa</li>
+</ol>
+<p>列表里可以继续嵌套语法</p>
+<h3 id="引用">引用</h3>
+<pre><code class="language-markdown">&gt; 枪响，雷鸣，剑起。繁花血景。
+</code></pre>
+<p>预览：</p>
+<blockquote>
+<p>枪响，雷鸣，剑起。繁花血景。</p>
+</blockquote>
+<p>引用里也可以继续嵌套语法。</p>
+<h3 id="换行">换行</h3>
+<p>markdown 分段落是需要空一行的。</p>
+<pre><code class="language-markdown">如果不空行
+就会在一段
+
+第一段
+
+第二段
+</code></pre>
+<p>预览：</p>
+<p>如果不空行<br>
+就会在一段</p>
+<p>第一段</p>
+<p>第二段</p>
+<h3 id="分隔符">分隔符</h3>
+<p>如果你有写分割线的习惯，可以新起一行输入三个减号<code>---</code> 或者星号 <code>***</code>。当前后都有段落时，请空出一行：</p>
+<pre><code class="language-markdown">---
+</code></pre>
+<p>预览：</p>
+<hr>
+<h2 id="高级技巧">高级技巧</h2>
+<h3 id="行内-html-元素">行内 HTML 元素</h3>
+<p>目前只支持部分段内 HTML 元素效果，包括 <code>&lt;kdb&gt; &lt;b&gt; &lt;i&gt; &lt;em&gt; &lt;sup&gt; &lt;sub&gt; &lt;br&gt;</code> ，如</p>
+<h4 id="键位显示">键位显示</h4>
+<pre><code class="language-markdown">使用 &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;Alt&lt;/kbd&gt; + &lt;kbd&gt;Del&lt;/kbd&gt; 重启电脑
+</code></pre>
+<p>预览：</p>
+<p>使用 <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Del</kbd> 重启电脑</p>
+<h4 id="粗斜体-2">粗斜体</h4>
+<pre><code class="language-markdown">&lt;b&gt; Markdown 在此处同样适用，如 _加粗_ &lt;/b&gt;
+</code></pre>
+<p>预览：</p>
+<p><b> Markdown 在此处同样适用，如 <em>加粗</em> </b></p>
+<h3 id="其他-html-写法">其他 HTML 写法</h3>
+<h4 id="折叠块">折叠块</h4>
+<pre><code class="language-markdown">&lt;details&gt;&lt;summary&gt;点击展开&lt;/summary&gt;它被隐藏了&lt;/details&gt;
+</code></pre>
+<p>预览：</p>
+<details><summary>点击展开</summary>它被隐藏了</details>
+<h3 id="表格">表格</h3>
+<pre><code class="language-markdown">| 表头1 | 表头2 |
+| ----- | ----- |
+| 内容1 | 内容2 |
+</code></pre>
+<p>预览：</p>
+<table>
+<thead>
+<tr>
+<th>表头1</th>
+<th>表头2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内容1</td>
+<td>内容2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="注释">注释</h3>
+<pre><code class="language-markdown">在引用的地方使用 [^注释] 来添加注释。
+
+然后在文档的结尾，添加注释的内容（会默认于文章结尾渲染之）。
+
+[^注释]: 这里是注释的内容
+</code></pre>
+<p>预览：</p>
+<p>在引用的地方使用 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> 来添加注释。</p>
+<p>然后在文档的结尾，添加注释的内容（会默认于文章结尾渲染之）。</p>
+<h3 id="to-do-列表">To-Do 列表</h3>
+<pre><code class="language-markdown">- [ ] 未完成的任务
+- [x] 已完成的任务
+</code></pre>
+<p>预览：</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-4006859"><label class="task-list-item-label" for="task-item-4006859"> 未完成的任务</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-9847999"><label class="task-list-item-label" for="task-item-9847999"> 已完成的任务</label></li>
+</ul>
+<h3 id="符号转义">符号转义</h3>
+<p>如果你的描述中需要用到 markdown 的符号，比如 _ # * 等，但又不想它被转义，这时候可以在这些符号前加反斜杠，如 <code>\_</code> <code>\#</code> <code>\*</code> 进行避免。</p>
+<pre><code class="language-markdown">\_不想这里的文本变斜体\_
+
+\*\*不想这里的文本被加粗\*\*
+</code></pre>
+<p>预览：</p>
+<p>_不想这里的文本变斜体_</p>
+<p>**不想这里的文本被加粗**</p>
+<hr>
+<h2 id="内嵌-astro-组件">内嵌 Astro 组件</h2>
+<p>See <a href="/docs/integrations/components">User Components</a> and <a href="/docs/integrations/advanced">Advanced Components</a> for details.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>这里是注释的内容 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Markdown Syntax Support]]></title>
+        <id>https://bi-zx.github.io/post/markdown/</id>
+        <link href="https://bi-zx.github.io/post/markdown/">
+        </link>
+        <updated>2024-07-26T00:00:00.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="basic-syntax">Basic Syntax</h2>
+<p>Markdown is a lightweight and easy-to-use syntax for styling your writing.</p>
+<h3 id="headers">Headers</h3>
+<p>When the content of the article is extensive, you can use headers to segment:</p>
+<pre><code class="language-markdown"># Header 1
+
+## Header 2
+
+## Large Header
+
+### Small Header
+</code></pre>
+<p>Header previews would disrupt the structure of the article, so they are not displayed here.</p>
+<h3 id="bold-and-italics">Bold and Italics</h3>
+<pre><code class="language-markdown">_Italic text_ and **Bold text**, together will be **_Bold Italic text_**
+</code></pre>
+<p>Preview:</p>
+<p><em>Italic text</em> and <strong>Bold text</strong>, together will be <strong><em>Bold Italic text</em></strong></p>
+<h3 id="links">Links</h3>
+<pre><code class="language-markdown">Text link [Link Name](http://link-url)
+</code></pre>
+<p>Preview:</p>
+<p>Text link <a href="http://link-url">Link Name</a></p>
+<h3 id="inline-code">Inline Code</h3>
+<pre><code class="language-markdown">This is an `inline code`
+</code></pre>
+<p>Preview:</p>
+<p>This is an <code>inline code</code></p>
+<h3 id="code-blocks">Code Blocks</h3>
+<pre><code class="language-markdown">```js
+// calculate fibonacci
+function fibonacci(n) {
+  if (n &lt;= 1) return 1
+  const result = fibonacci(n - 1) + fibonacci(n - 2) // [\!code --]
+  return fibonacci(n - 1) + fibonacci(n - 2) // [\!code ++]
+}
+```
+</code></pre>
+<p>Preview:</p>
+<pre><code class="language-js">// calculate fibonacci
+function fibonacci(n) {
+  if (n &lt;= 1) return 1
+  const result = fibonacci(n - 1) + fibonacci(n - 2) // [!code --]
+  return fibonacci(n - 1) + fibonacci(n - 2) // [!code ++]
+}
+</code></pre>
+<p>Currently using shiki as the code highlighting plugin. For supported languages, refer to <a href="https://shiki.matsu.io/languages.html">Shiki: Languages</a>.</p>
+<h3 id="inline-formula">Inline Formula</h3>
+<pre><code class="language-markdown">This is an inline formula $e^{i\pi} + 1 = 0$
+</code></pre>
+<p>Preview:</p>
+<p>This is an inline formula <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>e</mi><mrow><mi>i</mi><mi>π</mi></mrow></msup><mo>+</mo><mn>1</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">e^{i\pi} + 1 = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.907994em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">π</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></p>
+<h3 id="formula-blocks">Formula Blocks</h3>
+<pre><code class="language-markdown">$$
+\hat{f}(\xi) = \int_{-\infty}^{\infty} f(x) e^{-2\pi i x \xi} \, dx
+$$
+</code></pre>
+<p>Preview:</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>f</mi><mo>^</mo></mover><mo>(</mo><mi>ξ</mi><mo>)</mo><mo>=</mo><msubsup><mo>∫</mo><mrow><mo>−</mo><mi mathvariant="normal">∞</mi></mrow><mi mathvariant="normal">∞</mi></msubsup><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><msup><mi>e</mi><mrow><mo>−</mo><mn>2</mn><mi>π</mi><mi>i</mi><mi>x</mi><mi>ξ</mi></mrow></msup><mtext> </mtext><mi>d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">\hat{f}(\xi) = \int_{-\infty}^{\infty} f(x) e^{-2\pi i x \xi} \, dx
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2078799999999998em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9578799999999998em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.08332999999999999em;">^</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.04601em;">ξ</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.384573em;vertical-align:-0.970281em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.414292em;"><span style="top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">∞</span></span></span></span><span style="top:-3.8129000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∞</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.970281em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991079999999999em;"><span style="top:-3.1130000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">2</span><span class="mord mathdefault mtight" style="margin-right:0.03588em;">π</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">x</span><span class="mord mathdefault mtight" style="margin-right:0.04601em;">ξ</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">x</span></span></span></span></span></p>
+<p>Currently using KaTeX as the math formula plugin. For supported syntax, refer to <a href="https://katex.org/docs/supported.html">KaTeX Supported Functions</a>.</p>
+<h4 id="images">Images</h4>
+<pre><code class="language-markdown">![CWorld](https://cravatar.cn/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=200)
+</code></pre>
+<p>Preview:</p>
+<figure data-type="image" tabindex="1"><img src="https://cravatar.cn/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=200" alt="CWorld" loading="lazy"></figure>
+<h4 id="strikethrough">Strikethrough</h4>
+<pre><code class="language-markdown">~~Strikethrough~~
+</code></pre>
+<p>Preview:</p>
+<p><s>Strikethrough</s></p>
+<h3 id="lists">Lists</h3>
+<p>Regular unordered list</p>
+<pre><code class="language-markdown">- 1
+- 2
+- 3
+</code></pre>
+<p>Preview:</p>
+<ul>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+</ul>
+<p>Regular ordered list</p>
+<pre><code class="language-markdown">1. GPT-4
+2. Claude Opus
+3. LLaMa
+</code></pre>
+<p>Preview:</p>
+<ol>
+<li>GPT-4</li>
+<li>Claude Opus</li>
+<li>LLaMa</li>
+</ol>
+<p>You can continue to nest syntax within lists.</p>
+<h3 id="blockquotes">Blockquotes</h3>
+<pre><code class="language-markdown">&gt; Gunshot, thunder, sword rise. A scene of flowers and blood.
+</code></pre>
+<p>Preview:</p>
+<blockquote>
+<p>Gunshot, thunder, sword rise. A scene of flowers and blood.</p>
+</blockquote>
+<p>You can continue to nest syntax within blockquotes.</p>
+<h3 id="line-breaks">Line Breaks</h3>
+<p>Markdown needs a blank line to separate paragraphs.</p>
+<pre><code class="language-markdown">If you don't leave a blank line
+it will be in one paragraph
+
+First paragraph
+
+Second paragraph
+</code></pre>
+<p>Preview:</p>
+<p>If you don't leave a blank line<br>
+it will be in one paragraph</p>
+<p>First paragraph</p>
+<p>Second paragraph</p>
+<h3 id="separators">Separators</h3>
+<p>If you have the habit of writing separators, you can start a new line and enter three dashes <code>---</code> or asterisks <code>***</code>. Leave a blank line before and after when there are paragraphs:</p>
+<pre><code class="language-markdown">---
+</code></pre>
+<p>Preview:</p>
+<hr>
+<h2 id="advanced-techniques">Advanced Techniques</h2>
+<h3 id="inline-html-elements">Inline HTML Elements</h3>
+<p>Currently, only some inline HTML elements are supported, including <code>&lt;kdb&gt; &lt;b&gt; &lt;i&gt; &lt;em&gt; &lt;sup&gt; &lt;sub&gt; &lt;br&gt;</code>, such as</p>
+<h4 id="key-display">Key Display</h4>
+<pre><code class="language-markdown">Use &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;Alt&lt;/kbd&gt; + &lt;kbd&gt;Del&lt;/kbd&gt; to reboot the computer
+</code></pre>
+<p>Preview:</p>
+<p>Use <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Del</kbd> to reboot the computer</p>
+<h4 id="bold-italics">Bold Italics</h4>
+<pre><code class="language-markdown">&lt;b&gt; Markdown also applies here, such as _bold_ &lt;/b&gt;
+</code></pre>
+<p>Preview:</p>
+<p><b> Markdown also applies here, such as <em>bold</em> </b></p>
+<h3 id="other-html-writing">Other HTML Writing</h3>
+<h4 id="foldable-blocks">Foldable Blocks</h4>
+<pre><code class="language-markdown">&lt;details&gt;&lt;summary&gt;Click to expand&lt;/summary&gt;It is hidden&lt;/details&gt;
+</code></pre>
+<p>Preview:</p>
+<details><summary>Click to expand</summary>It is hidden</details>
+<h3 id="tables">Tables</h3>
+<pre><code class="language-markdown">| Header1  | Header2  |
+| -------- | -------- |
+| Content1 | Content2 |
+</code></pre>
+<p>Preview:</p>
+<table>
+<thead>
+<tr>
+<th>Header1</th>
+<th>Header2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content1</td>
+<td>Content2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="footnotes">Footnotes</h3>
+<pre><code class="language-markdown">Use [^footnote] to add a footnote at the point of reference.
+
+Then, at the end of the document, add the content of the footnote (it will be rendered at the end of the article by default).
+
+[^footnote]: Here is the content of the footnote
+</code></pre>
+<p>Preview:</p>
+<p>Use <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> to add a footnote at the point of reference.</p>
+<p>Then, at the end of the document, add the content of the footnote (it will be rendered at the end of the article by default).</p>
+<h3 id="to-do-lists">To-Do Lists</h3>
+<pre><code class="language-markdown">- [ ] Incomplete task
+- [x] Completed task
+</code></pre>
+<p>Preview:</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1807244"><label class="task-list-item-label" for="task-item-1807244"> Incomplete task</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-256351"><label class="task-list-item-label" for="task-item-256351"> Completed task</label></li>
+</ul>
+<h3 id="symbol-escaping">Symbol Escaping</h3>
+<p>If you need to use markdown symbols like _ # * in your description but don't want them to be escaped, you can add a backslash before these symbols, such as <code>\_</code> <code>\#</code> <code>\*</code> to avoid it.</p>
+<pre><code class="language-markdown">\_Don't want the text here to be italic\_
+
+\*\*Don't want the text here to be bold\*\*
+</code></pre>
+<p>Preview:</p>
+<p>_Don't want the text here to be italic_</p>
+<p>**Don't want the text here to be bold**</p>
+<hr>
+<h2 id="embedding-astro-components">Embedding Astro Components</h2>
+<p>See <a href="/docs/integrations/components">User Components</a> and <a href="/docs/integrations/advanced">Advanced Components</a> for details.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Here is the content of the footnote <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+    </entry>
+</feed>
